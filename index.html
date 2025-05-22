@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Multi-Step Form</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+</head>
+<body>
+  <main class="container">
+    <aside class="sidebar">
+      <img src="images/bg-sidebar-desktop.svg" alt="" class="sidebar-bg" />
+      <ul>
+        <li class="step active"><span>1</span> <div class="step-info"><strong>Step 1</strong><p class="step-desc">Your Info</p></div></li> 
+        <li class="step"><span>2</span> <div class="step-info"><strong>Step 2</strong><p class="step-desc">Select Plan</p></div></li>
+        <li class="step"><span>3</span> <div class="step-info"><strong>Step 3</strong><p class="step-desc">Add-ons</p></div></li>
+        <li class="step"><span>4</span> <div class="step-info"><strong>Step 4</strong><p class="step-desc">Summary</p></div></li>
+      </ul>
+    </aside>
+
+    <section class="form-container">
+      <form id="multiStepForm">
+        <!-- Step 1 -->
+        <div class="form-step active">
+          <h1>Your Info</h1>
+          <p class="description">Please provide your name, email address, and phone number.</p>
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" placeholder="e.g. Michelle Idahosa">
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" placeholder="e.g. imisdesign@lorem.com">
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" placeholder="e.g. +234 711 323 456">
+          </div>
+          <div class="buttons">
+            <button type="button" class="next-btn">Next Step</button>
+          </div>
+        </div>
+
+       <!-- Step 2 -->
+<div class="form-step">
+  <h1>Select your plan</h1>
+  <p class="description">You have the option of monthly or yearly billing.</p>
+  <div class="plans">
+    <label class="plan-box">
+      <img src="images/icon-arcade.svg" alt="Arcade" />
+      <div class="text">
+        <strong>Arcade</strong>
+        <p>$9/mo</p>
+      </div>
+      <input type="radio" name="plan" value="Arcade - $9/mo" />
+    </label>
+    <label class="plan-box">
+      <img src="images/icon-advanced.svg" alt="Advanced" />
+      <div class="text">
+        <strong>Advanced</strong>
+        <p>$12/mo</p>
+      </div>
+      <input type="radio" name="plan" value="Advanced - $12/mo" />
+    </label>
+    <label class="plan-box">
+      <img src="images/icon-pro.svg" alt="Pro" />
+      <div class="text">
+        <strong>Pro</strong>
+        <p>$15/mo</p>
+      </div>
+      <input type="radio" name="plan" value="Pro - $15/mo" />
+    </label>
+  </div>
+
+  <div class="toggle-billing">
+    <span>Monthly</span>
+    <label class="switch">
+      <input type="checkbox" id="billingToggle" />
+      <span class="slider round"></span>
+    </label>
+    <span>Yearly</span>
+  </div>
+
+  <div class="buttons">
+    <button type="button" class="back-btn">Go Back</button>
+    <button type="button" class="next-btn">Next Step</button>
+  </div>
+</div>
+       <!-- Step 3 -->
+<div class="form-step">
+  <h1>Pick Add-ons</h1>
+  <p class="description">Add-ons help enhance your gaming experience.</p>
+  <div class="addons">
+    <label class="addon-box">
+      <input type="checkbox" value="Online service - $1/mo" />
+      <div class="addon-content">
+        <div>
+          <strong>Online service</strong>
+          <p>Access to multiplayer games</p>
+        </div>
+        <span>+$1/mo</span>
+      </div>
+    </label>
+
+    <label class="addon-box">
+      <input type="checkbox" value="Larger storage - $2/mo" />
+      <div class="addon-content">
+        <div>
+          <strong>Larger storage</strong>
+          <p>Extra 1TB of cloud save</p>
+        </div>
+        <span>+$2/mo</span>
+      </div>
+    </label>
+
+    <label class="addon-box">
+      <input type="checkbox" value="Customizable Profile - $2/mo" />
+      <div class="addon-content">
+        <div>
+          <strong>Customizable Profile</strong>
+          <p>Custom theme on your profile</p>
+        </div>
+        <span>+$2/mo</span>
+      </div>
+    </label>
+  </div>
+
+  <div class="buttons">
+    <button type="button" class="back-btn">Go Back</button>
+    <button type="button" class="next-btn">Next Step</button>
+  </div>
+</div>
+        <!-- Step 4 -->
+<div class="form-step">
+  <h1>Finishing up</h1>
+  <p class="description">Double-check everything looks OK before confirming.</p>
+  <div class="summary-box">
+    <div class="summary-plan">
+      <div>
+        <strong>Pro (Monthly)</strong>
+        <button type="button" class="change-plan">Change</button>
+      </div>
+      <span>$15/mo</span>
+    </div>
+    <hr />
+    <div class="summary-addons">
+      <div class="addon-line">
+        <p>Online service</p>
+        <span>+$1/mo</span>
+      </div>
+      <div class="addon-line">
+        <p>Larger storage</p>
+        <span>+$2/mo</span>
+      </div>
+    </div>
+  </div>
+  <div class="total">
+    <p>Total (per month)</p>
+    <strong>$18/mo</strong>
+  </div>
+
+  <div class="buttons">
+    <button type="button" class="back-btn">Go Back</button>
+    <button type="submit">Confirm</button>
+  </div>
+</div>
+        <!-- Thank You -->
+        <div class="form-step" id="thankyou">
+          <img src="images/icon-thank-you.svg" alt="Thank you" class="thank-you-img" />
+          <h1>Thank You!</h1>
+          <p>Thanks for confirming your subscription! We hope you have fun using our platform. If you ever need support, feel free to email us at imisdesign@lorem.com.</p>
+        </div>
+      </form>
+    </section>
+  </main>
+  <script src="script.js"></script>
+   <script>
+    document.querySelectorAll('.step').forEach(step => {
+      step.addEventListener('click', () => {
+        step.querySelector('.step-desc').style.display = 'block';
+      });
+    });
+  </script>
+
+</body>
+</html>

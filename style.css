@@ -1,0 +1,485 @@
+/* Load Ubuntu fonts locally */
+@font-face {
+  font-family: 'Ubuntu';
+  src: url('fonts/Ubuntu-Regular.ttf') format('truetype');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Ubuntu';
+  src: url('fonts/Ubuntu-Medium.ttf') format('truetype');
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'Ubuntu';
+  src: url('fonts/Ubuntu-Bold.ttf') format('truetype');
+  font-weight: 700;
+}
+
+body {
+  font-family: 'Ubuntu', sans-serif;
+  background-color: #eef3fa;
+  color: #02295a;
+  margin: 0;
+  padding: 0;
+}
+
+/* Layout */
+.container {
+  display: flex;
+  max-width: 950px;
+  margin: 3rem auto;
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Sidebar */
+.sidebar {
+  position: relative;
+  width: 274px;
+  background-color: #483eff;
+  padding: 2rem 1.5rem;
+  color: white;
+}
+
+.sidebar-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  z-index: 0;
+}
+
+.sidebar ul {
+  list-style: none;
+  position: relative;
+  z-index: 1;
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.step span {
+  border: 1px solid white;
+  border-radius: 50%;
+  width: 34px;
+  height: 34px;
+  text-align: center;
+  line-height: 34px;
+  font-weight: bold;
+  margin-right: 1rem;
+}
+
+.step.active span {
+  background-color: #bfe2fd;
+  color: #02295a;
+  border: none;
+}
+
+/* Form Section */
+.form-container {
+  padding: 2.5rem 3rem;
+  flex: 1;
+}
+
+.form-step {
+  display: none;
+}
+
+.form-step.active {
+  display: block;
+}
+
+h1 {
+  font-weight: 700;
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.description {
+  font-weight: 400;
+  color: #9699ab;
+  margin-bottom: 2rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+label {
+  font-weight: 500;
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"] {
+  width: 100%;
+  padding: 0.8rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 1rem;
+}
+
+/* Plan cards */
+.plans {
+  display: flex;
+  gap: 1rem;
+   margin-bottom: 1.5rem;
+}
+
+.plan-box {
+  flex: 1;
+  border: 1px solid #d6d9e6;
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: border-color 0.2s, background-color 0.2s;
+}
+
+.plan-box:hover {
+  border-color: #483eff;
+  background-color: #f0f6ff;
+}
+.plan-box.selected,
+.addon-box.selected {
+  border-color: #483eff;
+  background-color: #f0f6ff;
+  box-shadow: 0 0 0 2px #483eff inset;
+}
+
+.plan-box input {
+  display: none;
+}
+
+.plan-box img {
+  width: 40px;
+}
+
+.plan-box .text strong {
+  font-weight: 700;
+  font-size: 1rem;
+  color: #02295a;
+}
+
+.plan-box .text p {
+  font-size: 0.9rem;
+  color: #9699ab;
+  margin: 0;
+}
+
+.plans label img {
+  width: 40px;
+  margin-bottom: 0.5rem;
+}
+
+.addons label {
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.summary {
+  background: #f8f9fe;
+  padding: 1.5rem;
+  border-radius: 8px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+
+button {
+  background-color: #02295a;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+/* ---------- STEP 2: Billing Toggle ---------- */
+.toggle-billing {
+  background-color: #f8f9fe;
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.toggle-billing span {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* Toggle switch styling */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 44px;
+  height: 22px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #02295a;
+  transition: 0.4s;
+  border-radius: 34px;
+  transition: background-color 0.4s ease;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 4px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider:before {
+  transform: translateX(20px);
+}
+input:checked + .slider {
+  background-color: #483eff;
+}
+
+/* ---------- STEP 3: Add-ons ---------- */
+.addons {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.addon-box {
+  border: 1px solid #d6d9e6;
+  border-radius: 8px;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: border-color 0.3s, background-color 0.3s;
+}
+
+.addon-box:hover {
+  border-color: #483eff;
+  background-color: #f0f6ff;
+}
+
+.addon-box input {
+  margin-right: 1rem;
+}
+
+.addon-content {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}
+
+.addon-content strong {
+  font-weight: 700;
+  color: #02295a;
+}
+
+.addon-content p {
+  font-size: 0.85rem;
+  color: #9699ab;
+  margin: 0.2rem 0 0;
+}
+
+.addon-content span {
+  font-weight: 600;
+  color: #483eff;
+}
+
+/* ---------- STEP 4: Summary ---------- */
+.summary-box {
+  background-color: #f8f9fe;
+  padding: 1rem;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+.summary-plan {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 700;
+  color: #02295a;
+  margin-bottom: 0.5rem;
+}
+
+.summary-plan button.change-plan {
+  background: none;
+  border: none;
+  color: #9699ab;
+  font-size: 0.8rem;
+  cursor: pointer;
+  text-decoration: underline;
+  padding: 0;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #d6d9e6;
+  margin: 1rem 0;
+}
+
+.summary-addons .addon-line {
+  display: flex;
+  justify-content: space-between;
+  margin: 0.4rem 0;
+  font-size: 0.9rem;
+}
+
+.total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1rem;
+}
+
+.total p {
+  color: #9699ab;
+}
+
+.total strong {
+  font-size: 1.2rem;
+  color: #483eff;
+}
+
+.thank-you-img {
+  width: 80px;
+  margin-bottom: 1rem;
+}
+
+/* ------Responsive Design - Mobile------ */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    width: 90%;
+    margin: 2rem auto;
+    border-radius: 0;
+  }
+
+  .sidebar {
+    width: 100%;
+    height: 200px;
+    padding: 0;
+    background-color: transparent;
+  }
+
+  .sidebar-bg {
+    content: url('images/bg-sidebar-mobile.svg');
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0;
+  }
+
+  .sidebar ul {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    padding-top: 1rem;
+  }
+
+  .step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+  }
+  .step span {
+    font-weight: bold;
+    font-size: 1rem;
+    background-color: white;
+    color: #02295a;
+    border-radius: 50%;
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+   .step-info {
+    margin-top: 0.5rem;
+  }
+
+  .step-info strong {
+    font-size: 0.8rem;
+    display: block;
+  }
+
+  .step-desc {
+    display: none;
+    font-size: 0.7rem;
+    color: #ebebeb;
+    margin-top: 0.2rem;
+  }
+
+  .step:hover .step-desc {
+    display: block;
+  }
+
+  .form-container {
+    padding: 1.5rem;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .plans {
+    flex-direction: column;
+  }
+
+  .buttons {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  button {
+    width: 100%;
+  }
+
+  .thank-you-img {
+    width: 60px;
+    justify-content: center;
+  }
+  #thankyou{
+    text-align: center;
+  }
+}
