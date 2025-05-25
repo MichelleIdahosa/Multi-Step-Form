@@ -109,6 +109,7 @@ h1 {
 }
 
 .form-group {
+  width: 100%;
   margin-bottom: 1.5rem;
 }
 
@@ -122,6 +123,7 @@ input[type="text"],
 input[type="email"],
 input[type="tel"] {
   width: 100%;
+  box-sizing: border-box;
   padding: 0.8rem;
   border-radius: 6px;
   border: 1px solid #ccc;
@@ -385,10 +387,13 @@ hr {
 
 /* ------Responsive Design - Mobile------ */
 @media (max-width: 768px) {
+    body {
+    overflow-x: hidden;
+  }
   .container {
     flex-direction: column;
     width: 90%;
-    margin: 2rem auto;
+    margin: 0 auto;
     border-radius: 0;
   }
 
@@ -455,7 +460,7 @@ hr {
   }
 
   .form-container {
-    padding: 1.5rem;
+    padding: 1rem;
   }
 
   h1 {
